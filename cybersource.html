@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upgrade Profile – Payment</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .header {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 14px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+    }
+
+    .button {
+      width: 100%;
+      background-color: #f5c71a;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .note {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Upgrade to Premium</div>
+
+    <!-- Membership Pack -->
+    <div class="form-group">
+      <label for="premium-pack">Choose a Premium Pack</label>
+      <select id="premium-pack">
+        <option>1 Hour Unlimited</option>
+        <option selected>1 Day Unlimited</option>
+        <option>Weekend Unlimited</option>
+      </select>
+    </div>
+
+    <!-- Payment Method -->
+    <div class="form-group">
+      <label for="payment-method">Payment Method</label>
+      <select id="payment-method">
+        <option value="card">Credit/Debit Card</option>
+        <option value="esewa">eSewa</option>
+        <option value="khalti">Khalti</option>
+      </select>
+    </div>
+
+    <!-- Card Payment Details -->
+    <div class="form-group">
+      <label for="card-number">Card Number</label>
+      <input type="text" id="card-number" name="req_card_number" placeholder="xxxx-xxxx-xxxx-1111" />
+    </div>
+
+    <div class="form-group">
+      <label for="card-expiry">Card Expiry (MM-YYYY)</label>
+      <input type="text" id="card-expiry" name="req_card_expiry_date" placeholder="12-2025" />
+    </div>
+
+    <div class="form-group">
+      <label for="card-cvv">CVV</label>
+      <input type="password" id="card-cvv" placeholder="123" />
+    </div>
+
+    <div class="form-group">
+      <label for="card-type">Card Type</label>
+      <select id="card-type" name="req_card_type">
+        <option value="001">Visa</option>
+        <option value="002">MasterCard</option>
+        <option value="003">AmEx</option>
+      </select>
+    </div>
+
+    <!-- Currency and Amount -->
+    <div class="form-group">
+      <label for="currency">Currency</label>
+      <select id="currency" name="req_currency">
+        <option value="NPR" selected>NPR</option>
+        <option value="USD">USD</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input type="text" id="amount" name="req_amount" value="200.00" readonly />
+    </div>
+
+    <!-- Hidden Fields for Cybersource -->
+    <input type="hidden" name="req_transaction_type" value="sale" />
+    <input type="hidden" name="req_locale" value="en" />
+    <input type="hidden" name="req_access_key" value="your-access-key-here" />
+    <input type="hidden" name="req_profile_id" value="your-profile-id-here" />
+    <input type="hidden" name="req_transaction_uuid" value="generated-uuid-here" />
+    <input type="hidden" name="req_reference_number" value="your-reference-id" />
+    <input type="hidden" name="req_device_fingerprint_id" value="generated-device-id" />
+    <input type="hidden" name="request_token" value="generated-token" />
+    <input type="hidden" name="signed_field_names" value="..." />
+    <input type="hidden" name="signed_date_time" value="..." />
+    <input type="hidden" name="signature" value="..." />
+
+    <!-- Submit -->
+    <button class="button">Proceed to Pay</button>
+
+    <div class="note">You will be redirected to a secure payment gateway to complete the process.</div>
+  </div>
+</body>
+</html>
